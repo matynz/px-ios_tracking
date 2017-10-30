@@ -1,2 +1,2 @@
-# MercadoPago iOS (Swift 4) PX Tracking SDK
+#  PX Tracking iOS SDK (Swift 4)
 Events and pages tracking library for iOS
