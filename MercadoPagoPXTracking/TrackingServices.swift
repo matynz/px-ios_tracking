@@ -39,8 +39,8 @@ class TrackingServices: NSObject {
         if let body = body {
             request.httpBody = body.data(using: String.Encoding.utf8)
         }
-        var session = URLSession.shared
-        var task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             if error == nil {
                 do {
