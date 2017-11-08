@@ -7,7 +7,7 @@
 //
 
 import Foundation
-open class PXTrackingURLCofigs: NSObject {
+open class PXTrackingURLConfigs: NSObject {
 
     static let MP_API_BASE_URL_PROD: String =  "https://api.mercadopago.com"
     static var MP_TEST_ENV = "/beta"

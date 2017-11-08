@@ -10,6 +10,6 @@ import Foundation
 open class PXTrackingSettings: NSObject {
 
     open class func enableBetaServices() {
-        PXTrackingURLCofigs.MP_SELECTED_ENV = PXTrackingURLCofigs.MP_TEST_ENV
+        PXTrackingURLConfigs.MP_SELECTED_ENV = PXTrackingURLConfigs.MP_TEST_ENV
     }
 }
