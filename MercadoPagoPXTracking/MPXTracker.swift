@@ -138,4 +138,7 @@ public class MPXTracker: NSObject {
     open static func getTrackListener() -> MPTrackListener? {
         return sharedInstance.trackListener
     }
+    open func enableBetaServices() {
+        TrackingServices.MP_SELECTED_ENV = TrackingServices.MP_TEST_ENV
+    }
 }
