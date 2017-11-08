@@ -21,7 +21,7 @@ public class MPXTracker: NSObject {
     var public_key: String = ""
     var sdkVersion = ""
 
-    static let TRACKING_URL = TrackingServices.MP_API_BASE_URL_PROD + TrackingServices.MP_TRACKING_EVENTS_URI
+    static let TRACKING_URL = PXTrackingURLCofigs.MP_API_BASE_URL_PROD + PXTrackingURLCofigs.MP_TRACKING_EVENTS_URI
 
     static let kTrackingSettings = "tracking_settings"
     private static let kTrackingEnabled = "tracking_enabled"
@@ -139,6 +139,6 @@ public class MPXTracker: NSObject {
         return sharedInstance.trackListener
     }
     open func enableBetaServices() {
-        TrackingServices.MP_SELECTED_ENV = TrackingServices.MP_TEST_ENV
+        PXTrackingURLCofigs.MP_SELECTED_ENV = PXTrackingURLCofigs.MP_TEST_ENV
     }
 }
