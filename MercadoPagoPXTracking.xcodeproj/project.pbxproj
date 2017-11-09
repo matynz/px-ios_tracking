@@ -34,9 +34,9 @@
 		4B606ED11FA75CA9006277D7 /* mpx_tracking_settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B606ED01FA75CA9006277D7 /* mpx_tracking_settings.plist */; };
 		4B606ED31FA75EC5006277D7 /* TrackingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606ED21FA75EC5006277D7 /* TrackingUtil.swift */; };
 		4B606ED91FA7757D006277D7 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606ED81FA7757D006277D7 /* JSONHandler.swift */; };
-		4BB3ECED1FB37EE600AAFD38 /* PXTrackingURLCofigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLCofigs.swift */; };
+		4BB3ECED1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift */; };
 		4BB3ECEF1FB37F0000AAFD38 /* PXTrackingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3ECEE1FB37F0000AAFD38 /* PXTrackingSettings.swift */; };
-		4BD1E8641FB38012002B3F75 /* PXTrackingURLCofigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLCofigs.swift */; };
+		4BD1E8641FB38012002B3F75 /* PXTrackingURLConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift */; };
 		4BEB380D1FA777C4005127BE /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB380C1FA777C4005127BE /* Array+Additions.swift */; };
 		4BEB380F1FA777DB005127BE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB380E1FA777DB005127BE /* Utils.swift */; };
 /* End PBXBuildFile section */
@@ -70,7 +70,7 @@
 		4B606ED01FA75CA9006277D7 /* mpx_tracking_settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mpx_tracking_settings.plist; sourceTree = "<group>"; };
 		4B606ED21FA75EC5006277D7 /* TrackingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingUtil.swift; sourceTree = "<group>"; };
 		4B606ED81FA7757D006277D7 /* JSONHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
-		4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLCofigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXTrackingURLCofigs.swift; sourceTree = "<group>"; };
+		4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXTrackingURLConfigs.swift; sourceTree = "<group>"; };
 		4BB3ECEE1FB37F0000AAFD38 /* PXTrackingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXTrackingSettings.swift; sourceTree = "<group>"; };
 		4BEB380C1FA777C4005127BE /* Array+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
 		4BEB380E1FA777DB005127BE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 				4B606EA01FA758E4006277D7 /* Info.plist */,
 				4B606ED81FA7757D006277D7 /* JSONHandler.swift */,
 				4BEB380E1FA777DB005127BE /* Utils.swift */,
-				4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLCofigs.swift */,
+				4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift */,
 				4BB3ECEE1FB37F0000AAFD38 /* PXTrackingSettings.swift */,
 			);
 			path = MercadoPagoPXTracking;
@@ -279,7 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B606ECA1FA75986006277D7 /* TrackingServices.swift in Sources */,
-				4BB3ECED1FB37EE600AAFD38 /* PXTrackingURLCofigs.swift in Sources */,
+				4BB3ECED1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift in Sources */,
 				4B606ECC1FA75986006277D7 /* TrackStorageManager.swift in Sources */,
 				4B606ECF1FA75A74006277D7 /* String+Additions.swift in Sources */,
 				4B606ED31FA75EC5006277D7 /* TrackingUtil.swift in Sources */,
@@ -310,7 +310,7 @@
 				4B473B391FA793C400762D62 /* TrackingUtil.swift in Sources */,
 				4B473B3C1FA793CB00762D62 /* TrackStorageManager.swift in Sources */,
 				4B473B461FA79ADC00762D62 /* MPXTracker.swift in Sources */,
-				4BD1E8641FB38012002B3F75 /* PXTrackingURLCofigs.swift in Sources */,
+				4BD1E8641FB38012002B3F75 /* PXTrackingURLConfigs.swift in Sources */,
 				4B473B381FA793C100762D62 /* String+Additions.swift in Sources */,
 				4B473B3B1FA793C800762D62 /* Utils.swift in Sources */,
 			);
