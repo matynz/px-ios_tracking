@@ -9,11 +9,12 @@
 import UIKit
 
 class MPTDevice: NSObject {
-    var model: String
-    var os: String
-    var systemVersion: String
-    var screenSize: String
-    var resolution: String
+    let model: String
+    let os: String
+    let systemVersion: String
+    let screenSize: String
+    let resolution: String
+    var uuid: String
     override init() {
         self.model = UIDevice.current.model
         self.os =  "iOS"
@@ -23,14 +24,22 @@ class MPTDevice: NSObject {
         let screenHeight = screenSize.height
         self.screenSize = String(describing: screenWidth) + "x" + String(describing: screenHeight)
         self.resolution = String(describing: UIScreen.main.scale)
+        self.uuid = ""
     }
+    
     open func toJSON() -> [String:Any] {
+        
+        if let targetUuid = UIDevice.current.identifierForVendor?.uuidString {
+            self.uuid = targetUuid
+        }
+        
         let obj: [String:Any] = [
             "model": model,
             "os": os,
             "system_version": systemVersion,
             "screen_size": screenSize,
-            "resolution": resolution
+            "resolution": resolution,
+            "uuid": uuid
         ]
         return obj
     }
@@ -40,19 +49,22 @@ class MPTDevice: NSObject {
 }
 
 class MPTApplication: NSObject {
-    var publicKey: String
-    var checkoutVersion: String
-    var platform: String
-    init(publicKey: String, checkoutVersion: String, platform: String) {
-        self.publicKey = publicKey
+    let checkoutVersion: String
+    let platform: String
+    let flowId: String
+    let environment: String
+    init(checkoutVersion: String, platform: String, flowId: String, environment: String) {
         self.checkoutVersion = checkoutVersion
         self.platform = platform
+        self.flowId = flowId
+        self.environment = environment
     }
     open func toJSON() -> [String:Any] {
         let obj: [String:Any] = [
-            "public_key": publicKey,
-            "checkout_version": checkoutVersion,
-            "platform": platform
+            FlowService.FLOW_ID_KEY: flowId,
+            "version": checkoutVersion,
+            "platform": platform,
+            "environment": environment
         ]
         return obj
     }

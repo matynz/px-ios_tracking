@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2377F8FF2052AB7100AB1B94 /* FlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2377F8FE2052AB7100AB1B94 /* FlowService.swift */; };
+		2377F9002052AB7100AB1B94 /* FlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2377F8FE2052AB7100AB1B94 /* FlowService.swift */; };
 		4B473B371FA7939300762D62 /* TrackerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B473B361FA7939300762D62 /* TrackerTest.swift */; };
 		4B473B381FA793C100762D62 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606ECE1FA75A74006277D7 /* String+Additions.swift */; };
 		4B473B391FA793C400762D62 /* TrackingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606ED21FA75EC5006277D7 /* TrackingUtil.swift */; };
@@ -52,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2377F8FE2052AB7100AB1B94 /* FlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowService.swift; sourceTree = "<group>"; };
 		4B473B361FA7939300762D62 /* TrackerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerTest.swift; sourceTree = "<group>"; };
 		4B606E9C1FA758E4006277D7 /* MercadoPagoPXTracking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MercadoPagoPXTracking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B606E9F1FA758E4006277D7 /* MercadoPagoPXTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MercadoPagoPXTracking.h; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 				4B606EC01FA75978006277D7 /* MPTFingerPrint.swift */,
 				4B606EC61FA75984006277D7 /* MPXReach.swift */,
 				4B606EC21FA7597A006277D7 /* MPXTracker.swift */,
+				2377F8FE2052AB7100AB1B94 /* FlowService.swift */,
 				4B606EC11FA75979006277D7 /* PaymentTracker.swift */,
 				4B606EC31FA7597C006277D7 /* TrackingServices.swift */,
 				4B606EC41FA7597E006277D7 /* TrackingStrategy.swift */,
@@ -292,6 +296,7 @@
 				4B606ECB1FA75986006277D7 /* TrackingStrategy.swift in Sources */,
 				4BEB380F1FA777DB005127BE /* Utils.swift in Sources */,
 				4BB3ECEF1FB37F0000AAFD38 /* PXTrackingSettings.swift in Sources */,
+				2377F8FF2052AB7100AB1B94 /* FlowService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +318,7 @@
 				4BD1E8641FB38012002B3F75 /* PXTrackingURLConfigs.swift in Sources */,
 				4B473B381FA793C100762D62 /* String+Additions.swift in Sources */,
 				4B473B3B1FA793C800762D62 /* Utils.swift in Sources */,
+				2377F9002052AB7100AB1B94 /* FlowService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

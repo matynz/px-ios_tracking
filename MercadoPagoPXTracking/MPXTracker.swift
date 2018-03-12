@@ -16,48 +16,95 @@ public protocol MPTrackListener {
 
 public class MPXTracker: NSObject {
 
+    enum Environment: String {
+        case production = "production"
+        case staging = "staging"
+    }
+    
     static let sharedInstance = MPXTracker()
-    var trackListener: MPTrackListener?
+    
     var public_key: String = ""
     var sdkVersion = ""
-
     static let kTrackingSettings = "tracking_settings"
     private static let kTrackingEnabled = "tracking_enabled"
+    
+    var trackListener: MPTrackListener?
     var trackingStrategy: TrackingStrategy = RealTimeStrategy()
+    
+    fileprivate var flowService: FlowService = FlowService(nil)
+    fileprivate lazy var currentEnvironment: String = Environment.staging.rawValue
+}
 
+// MARK: Getters/setters.
+extension MPXTracker {
+    
     open class func setPublicKey(_ public_key: String) {
         sharedInstance.public_key = public_key.trimSpaces()
     }
-
+    
     open class func setSdkVersion(_ version: String) {
         sharedInstance.sdkVersion = version
     }
-
+    
     open func getPublicKey() -> String! {
         return self.public_key
     }
-
+    
+    open func setEnvironment(environment: String) {
+        self.currentEnvironment = environment
+    }
+    
     open func getSdkVersion() -> String {
         return sdkVersion
     }
-
+    
     open func getPlatformType() -> String {
-        return "native/ios"
+        return "/mobile/ios"
     }
+    
+    func isEnabled() -> Bool {
+        guard let trackiSettings: [String:Any] = Utils.getSetting(identifier: MPXTracker.kTrackingSettings) else {
+            return false
+        }
+        guard let trackingEnabled = trackiSettings[MPXTracker.kTrackingEnabled] as? Bool else {
+            return false
+        }
+        return trackingEnabled
+    }
+    
+    open class func setTrack(listener: MPTrackListener) {
+        sharedInstance.trackListener = listener
+    }
+    
+    open func getTrackListener() -> MPTrackListener? {
+        return trackListener
+    }
+    
+    open func startNewFlow() {
+        flowService.startNewFlow()
+    }
+    
+    open func startNewFlow(externalFlowId:String) {
+        flowService.startNewFlow(externalFlowId: externalFlowId)
+    }
+}
 
-    open static func trackScreen(screenId: String, screenName: String, metadata: [String : String?] = [:]) {
-        if let trackListener = sharedInstance.trackListener {
-            trackListener.trackScreen(screenName: screenName)
+// MARK: Public interfase.
+extension MPXTracker {
+    
+    open func trackScreen(screenId: String, screenName: String, metadata: [String : String?] = [:]) {
+        if let trackListenerInterfase = trackListener {
+            trackListenerInterfase.trackScreen(screenName: screenName)
         }
         if !isEnabled() {
             return
         }
         setTrackingStrategy(screenID: screenId)
         let screenTrack = ScreenTrackInfo(screenName: screenName, screenId: screenId, metadata: metadata)
-        sharedInstance.trackingStrategy.trackScreen(screenTrack: screenTrack)
+        trackingStrategy.trackScreen(screenTrack: screenTrack)
     }
-
-    open static func setTrackingStrategy(screenID: String) {
+    
+    open func setTrackingStrategy(screenID: String) {
         let forcedScreens: [String] = [TrackingUtil.SCREEN_ID_PAYMENT_RESULT,
                                        TrackingUtil.SCREEN_ID_PAYMENT_RESULT_APPROVED,
                                        TrackingUtil.SCREEN_ID_PAYMENT_RESULT_PENDING,
@@ -65,36 +112,41 @@ public class MPXTracker: NSObject {
                                        TrackingUtil.SCREEN_ID_PAYMENT_RESULT_INSTRUCTIONS,
                                        TrackingUtil.SCREEN_ID_ERROR]
         if forcedScreens.contains(screenID) {
-            sharedInstance.trackingStrategy = ForceTrackStrategy()
+            trackingStrategy = ForceTrackStrategy()
         } else {
-            sharedInstance.trackingStrategy = BatchStrategy()
+            trackingStrategy = BatchStrategy()
         }
     }
+}
 
-    static func generateJSONDefault() -> [String:Any] {
-        let clientId = UIDevice.current.identifierForVendor!.uuidString
+// MARK: Internal interfase.
+extension MPXTracker {
+    
+    internal func generateJSONDefault() -> [String:Any] {
         let deviceJSON = MPTDevice().toJSON()
-        let applicationJSON = MPTApplication(publicKey: MPXTracker.sharedInstance.getPublicKey(), checkoutVersion: MPXTracker.sharedInstance.getSdkVersion(), platform: MPXTracker.sharedInstance.getPlatformType()).toJSON()
+        let applicationJSON = MPTApplication(checkoutVersion: MPXTracker.sharedInstance.getSdkVersion(), platform: MPXTracker.sharedInstance.getPlatformType(), flowId: flowService.getFlowId(), environment: currentEnvironment).toJSON()
         let obj: [String:Any] = [
-            "client_id": clientId,
             "application": applicationJSON,
-            "device": deviceJSON,
-            ]
+            "device": deviceJSON
+        ]
         return obj
     }
-    static func generateJSONScreen(screenId: String, screenName: String, metadata: [String:Any]) -> [String:Any] {
+    
+    internal func generateJSONScreen(screenId: String, screenName: String, metadata: [String:Any]) -> [String:Any] {
         var obj = generateJSONDefault()
-        let screenJSON = MPXTracker.screenJSON(screenId: screenId, screenName: screenName, metadata:metadata)
+        let screenJSON = self.screenJSON(screenId: screenId, screenName: screenName, metadata:metadata)
         obj["events"] = [screenJSON]
         return obj
     }
-    static func generateJSONEvent(screenId: String, screenName: String, action: String, category: String, label: String, value: String) -> [String:Any] {
+    
+    internal func generateJSONEvent(screenId: String, screenName: String, action: String, category: String, label: String, value: String) -> [String:Any] {
         var obj = generateJSONDefault()
-        let eventJSON = MPXTracker.eventJSON(screenId: screenId, screenName: screenName, action: action, category: category, label: label, value: value)
+        let eventJSON = self.eventJSON(screenId: screenId, screenName: screenName, action: action, category: category, label: label, value: value)
         obj["events"] = [eventJSON]
         return obj
     }
-    static func eventJSON(screenId: String, screenName: String, action: String, category: String, label: String, value: String) -> [String:Any] {
+    
+    internal func eventJSON(screenId: String, screenName: String, action: String, category: String, label: String, value: String) -> [String:Any] {
         let timestamp = Date().getCurrentMillis()
         let obj: [String:Any] = [
             "timestamp": timestamp,
@@ -108,7 +160,8 @@ public class MPXTracker: NSObject {
         ]
         return obj
     }
-    static func screenJSON(screenId: String, screenName: String, metadata: [String:Any]) -> [String:Any] {
+    
+    internal func screenJSON(screenId: String, screenName: String, metadata: [String:Any]) -> [String:Any] {
         let timestamp = Date().getCurrentMillis()
         let obj: [String:Any] = [
             "timestamp": timestamp,
@@ -118,22 +171,5 @@ public class MPXTracker: NSObject {
             "metadata": metadata
         ]
         return obj
-    }
-
-    static func isEnabled() -> Bool {
-        guard let trackiSettings: [String:Any] = Utils.getSetting(identifier: MPXTracker.kTrackingSettings) else {
-            return false
-        }
-        guard let trackingEnabled = trackiSettings[MPXTracker.kTrackingEnabled] as? Bool else {
-            return false
-        }
-        return trackingEnabled
-    }
-
-    open class func setTrack(listener: MPTrackListener) {
-        MPXTracker.sharedInstance.trackListener = listener
-    }
-    open static func getTrackListener() -> MPTrackListener? {
-        return sharedInstance.trackListener
     }
 }
