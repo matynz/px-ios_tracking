@@ -11,18 +11,18 @@ import Foundation
 open class TrackingUtil: NSObject {
 
     //Screen IDs
-    open static let SCREEN_ID_CHECKOUT = "/checkout_off/init"
-    open static let SCREEN_ID_PAYMENT_VAULT = "/checkout_off/payment_option"
-    open static let SCREEN_ID_REVIEW_AND_CONFIRM = "/checkout_off/review"
-    open static let SCREEN_ID_PAYMENT_RESULT = "/checkout_off/congrats"
-    open static let SCREEN_ID_PAYMENT_RESULT_APPROVED = "/checkout_off/congrats/approved"
-    open static let SCREEN_ID_PAYMENT_RESULT_PENDING = "/checkout_off/congrats/pending"
-    open static let SCREEN_ID_PAYMENT_RESULT_REJECTED = "/checkout_off/congrats/rejected"
-    open static let SCREEN_ID_PAYMENT_RESULT_INSTRUCTIONS = "/checkout_off/congrats/instructions"
-    open static let SCREEN_ID_BANK_DEALS = "/checkout_off/bank_deals"
-    open static let SCREEN_ID_CARD_FORM = "/checkout_off/card"
-    open static let SCREEN_ID_ERROR = "/checkout_off/failure"
-    open static let SCREEN_ID_PAYMENT_TYPES = "/checkout_off/card/payment_types"
+    open static let SCREEN_ID_CHECKOUT = "/init"
+    open static let SCREEN_ID_PAYMENT_VAULT = "/payment_option"
+    open static let SCREEN_ID_REVIEW_AND_CONFIRM = "/review"
+    open static let SCREEN_ID_PAYMENT_RESULT = "/congrats"
+    open static let SCREEN_ID_PAYMENT_RESULT_APPROVED = "/congrats/approved"
+    open static let SCREEN_ID_PAYMENT_RESULT_PENDING = "/congrats/pending"
+    open static let SCREEN_ID_PAYMENT_RESULT_REJECTED = "/congrats/rejected"
+    open static let SCREEN_ID_PAYMENT_RESULT_INSTRUCTIONS = "/congrats/instructions"
+    open static let SCREEN_ID_BANK_DEALS = "/bank_deals"
+    open static let SCREEN_ID_CARD_FORM = "/card"
+    open static let SCREEN_ID_ERROR = "/failure"
+    open static let SCREEN_ID_PAYMENT_TYPES = "/card/payment_types"
 
     //Screen Names
     open static let SCREEN_NAME_CHECKOUT = "INIT_CHECKOUT"
