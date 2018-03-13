@@ -18,14 +18,14 @@
 		4B473B3E1FA793D000762D62 /* TrackingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC31FA7597C006277D7 /* TrackingServices.swift */; };
 		4B473B3F1FA793D400762D62 /* PaymentTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC11FA75979006277D7 /* PaymentTracker.swift */; };
 		4B473B411FA793D900762D62 /* MPXReach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC61FA75984006277D7 /* MPXReach.swift */; };
-		4B473B421FA793DC00762D62 /* MPTFingerPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC01FA75978006277D7 /* MPTFingerPrint.swift */; };
+		4B473B421FA793DC00762D62 /* MPTDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC01FA75978006277D7 /* MPTDevice.swift */; };
 		4B473B431FA793DF00762D62 /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB380C1FA777C4005127BE /* Array+Additions.swift */; };
 		4B473B441FA7954300762D62 /* mpx_tracking_settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B606ED01FA75CA9006277D7 /* mpx_tracking_settings.plist */; };
 		4B473B461FA79ADC00762D62 /* MPXTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC21FA7597A006277D7 /* MPXTracker.swift */; };
 		4B606EA61FA758E4006277D7 /* MercadoPagoPXTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B606E9C1FA758E4006277D7 /* MercadoPagoPXTracking.framework */; };
 		4B606EAB1FA758E4006277D7 /* MercadoPagoPXTrackingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EAA1FA758E4006277D7 /* MercadoPagoPXTrackingTests.swift */; };
 		4B606EAD1FA758E4006277D7 /* MercadoPagoPXTracking.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B606E9F1FA758E4006277D7 /* MercadoPagoPXTracking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4B606EC71FA75986006277D7 /* MPTFingerPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC01FA75978006277D7 /* MPTFingerPrint.swift */; };
+		4B606EC71FA75986006277D7 /* MPTDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC01FA75978006277D7 /* MPTDevice.swift */; };
 		4B606EC81FA75986006277D7 /* PaymentTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC11FA75979006277D7 /* PaymentTracker.swift */; };
 		4B606EC91FA75986006277D7 /* MPXTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC21FA7597A006277D7 /* MPXTracker.swift */; };
 		4B606ECA1FA75986006277D7 /* TrackingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B606EC31FA7597C006277D7 /* TrackingServices.swift */; };
@@ -39,6 +39,15 @@
 		4BB3ECED1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift */; };
 		4BB3ECEF1FB37F0000AAFD38 /* PXTrackingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3ECEE1FB37F0000AAFD38 /* PXTrackingSettings.swift */; };
 		4BD1E8641FB38012002B3F75 /* PXTrackingURLConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift */; };
+		4BE3C5402056BD5D005BE20C /* MPTScreenTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C53F2056BD5D005BE20C /* MPTScreenTrackInfo.swift */; };
+		4BE3C5422056BD93005BE20C /* MPTApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C5412056BD93005BE20C /* MPTApplication.swift */; };
+		4BE3C5442056BDBA005BE20C /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C5432056BDBA005BE20C /* Date+Additions.swift */; };
+		4BE3C5462056BE3B005BE20C /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C5432056BDBA005BE20C /* Date+Additions.swift */; };
+		4BE3C5482056BE57005BE20C /* MPTApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C5412056BD93005BE20C /* MPTApplication.swift */; };
+		4BE3C5492056BE5C005BE20C /* MPTScreenTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C53F2056BD5D005BE20C /* MPTScreenTrackInfo.swift */; };
+		4BE3C54B2056BE84005BE20C /* MPTActionEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C54A2056BE84005BE20C /* MPTActionEventInfo.swift */; };
+		4BE3C54D2056C034005BE20C /* MPTTrackType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C54C2056C034005BE20C /* MPTTrackType.swift */; };
+		4BE3C54F2056C4EB005BE20C /* MPTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C54E2056C4EB005BE20C /* MPTrackInfo.swift */; };
 		4BEB380D1FA777C4005127BE /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB380C1FA777C4005127BE /* Array+Additions.swift */; };
 		4BEB380F1FA777DB005127BE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB380E1FA777DB005127BE /* Utils.swift */; };
 /* End PBXBuildFile section */
@@ -62,7 +71,7 @@
 		4B606EA51FA758E4006277D7 /* MercadoPagoPXTrackingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MercadoPagoPXTrackingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B606EAA1FA758E4006277D7 /* MercadoPagoPXTrackingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoPagoPXTrackingTests.swift; sourceTree = "<group>"; };
 		4B606EAC1FA758E4006277D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B606EC01FA75978006277D7 /* MPTFingerPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTFingerPrint.swift; sourceTree = "<group>"; };
+		4B606EC01FA75978006277D7 /* MPTDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTDevice.swift; sourceTree = "<group>"; };
 		4B606EC11FA75979006277D7 /* PaymentTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTracker.swift; sourceTree = "<group>"; };
 		4B606EC21FA7597A006277D7 /* MPXTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPXTracker.swift; sourceTree = "<group>"; };
 		4B606EC31FA7597C006277D7 /* TrackingServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingServices.swift; sourceTree = "<group>"; };
@@ -75,6 +84,12 @@
 		4B606ED81FA7757D006277D7 /* JSONHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
 		4BB3ECEC1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXTrackingURLConfigs.swift; sourceTree = "<group>"; };
 		4BB3ECEE1FB37F0000AAFD38 /* PXTrackingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXTrackingSettings.swift; sourceTree = "<group>"; };
+		4BE3C53F2056BD5D005BE20C /* MPTScreenTrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTScreenTrackInfo.swift; sourceTree = "<group>"; };
+		4BE3C5412056BD93005BE20C /* MPTApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTApplication.swift; sourceTree = "<group>"; };
+		4BE3C5432056BDBA005BE20C /* Date+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
+		4BE3C54A2056BE84005BE20C /* MPTActionEventInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTActionEventInfo.swift; sourceTree = "<group>"; };
+		4BE3C54C2056C034005BE20C /* MPTTrackType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTTrackType.swift; sourceTree = "<group>"; };
+		4BE3C54E2056C4EB005BE20C /* MPTrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTrackInfo.swift; sourceTree = "<group>"; };
 		4BEB380C1FA777C4005127BE /* Array+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
 		4BEB380E1FA777DB005127BE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,11 +134,10 @@
 		4B606E9E1FA758E4006277D7 /* MercadoPagoPXTracking */ = {
 			isa = PBXGroup;
 			children = (
+				4BE3C5472056BE49005BE20C /* Models */,
+				4BE3C5452056BE2C005BE20C /* Extensions */,
 				4B606ED21FA75EC5006277D7 /* TrackingUtil.swift */,
 				4B606ED01FA75CA9006277D7 /* mpx_tracking_settings.plist */,
-				4B606ECE1FA75A74006277D7 /* String+Additions.swift */,
-				4BEB380C1FA777C4005127BE /* Array+Additions.swift */,
-				4B606EC01FA75978006277D7 /* MPTFingerPrint.swift */,
 				4B606EC61FA75984006277D7 /* MPXReach.swift */,
 				4B606EC21FA7597A006277D7 /* MPXTracker.swift */,
 				2377F8FE2052AB7100AB1B94 /* FlowService.swift */,
@@ -151,6 +165,29 @@
 			path = MercadoPagoPXTrackingTests;
 			sourceTree = "<group>";
 		};
+		4BE3C5452056BE2C005BE20C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4BE3C5432056BDBA005BE20C /* Date+Additions.swift */,
+				4B606ECE1FA75A74006277D7 /* String+Additions.swift */,
+				4BEB380C1FA777C4005127BE /* Array+Additions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		4BE3C5472056BE49005BE20C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4B606EC01FA75978006277D7 /* MPTDevice.swift */,
+				4BE3C5412056BD93005BE20C /* MPTApplication.swift */,
+				4BE3C53F2056BD5D005BE20C /* MPTScreenTrackInfo.swift */,
+				4BE3C54A2056BE84005BE20C /* MPTActionEventInfo.swift */,
+				4BE3C54C2056C034005BE20C /* MPTTrackType.swift */,
+				4BE3C54E2056C4EB005BE20C /* MPTrackInfo.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -173,7 +210,6 @@
 				4B606E981FA758E4006277D7 /* Frameworks */,
 				4B606E991FA758E4006277D7 /* Headers */,
 				4B606E9A1FA758E4006277D7 /* Resources */,
-				4BEB38101FA77827005127BE /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -260,43 +296,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		4BEB38101FA77827005127BE /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		4B606E971FA758E4006277D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4B606ECA1FA75986006277D7 /* TrackingServices.swift in Sources */,
+				4BE3C5402056BD5D005BE20C /* MPTScreenTrackInfo.swift in Sources */,
 				4BB3ECED1FB37EE600AAFD38 /* PXTrackingURLConfigs.swift in Sources */,
 				4B606ECC1FA75986006277D7 /* TrackStorageManager.swift in Sources */,
+				4BE3C54B2056BE84005BE20C /* MPTActionEventInfo.swift in Sources */,
+				4BE3C54D2056C034005BE20C /* MPTTrackType.swift in Sources */,
 				4B606ECF1FA75A74006277D7 /* String+Additions.swift in Sources */,
 				4B606ED31FA75EC5006277D7 /* TrackingUtil.swift in Sources */,
-				4B606EC71FA75986006277D7 /* MPTFingerPrint.swift in Sources */,
+				4B606EC71FA75986006277D7 /* MPTDevice.swift in Sources */,
 				4B606EC81FA75986006277D7 /* PaymentTracker.swift in Sources */,
 				4B606ED91FA7757D006277D7 /* JSONHandler.swift in Sources */,
 				4BEB380D1FA777C4005127BE /* Array+Additions.swift in Sources */,
 				4B606EC91FA75986006277D7 /* MPXTracker.swift in Sources */,
+				4BE3C54F2056C4EB005BE20C /* MPTrackInfo.swift in Sources */,
 				4B606ECD1FA75986006277D7 /* MPXReach.swift in Sources */,
 				4B606ECB1FA75986006277D7 /* TrackingStrategy.swift in Sources */,
 				4BEB380F1FA777DB005127BE /* Utils.swift in Sources */,
 				4BB3ECEF1FB37F0000AAFD38 /* PXTrackingSettings.swift in Sources */,
+				4BE3C5442056BDBA005BE20C /* Date+Additions.swift in Sources */,
 				2377F8FF2052AB7100AB1B94 /* FlowService.swift in Sources */,
+				4BE3C5422056BD93005BE20C /* MPTApplication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,11 +331,12 @@
 			files = (
 				4B473B371FA7939300762D62 /* TrackerTest.swift in Sources */,
 				4B473B411FA793D900762D62 /* MPXReach.swift in Sources */,
-				4B473B421FA793DC00762D62 /* MPTFingerPrint.swift in Sources */,
+				4B473B421FA793DC00762D62 /* MPTDevice.swift in Sources */,
 				4B473B431FA793DF00762D62 /* Array+Additions.swift in Sources */,
 				4B473B3A1FA793C600762D62 /* JSONHandler.swift in Sources */,
 				4B473B3E1FA793D000762D62 /* TrackingServices.swift in Sources */,
 				4B473B3F1FA793D400762D62 /* PaymentTracker.swift in Sources */,
+				4BE3C5462056BE3B005BE20C /* Date+Additions.swift in Sources */,
 				4B606EAB1FA758E4006277D7 /* MercadoPagoPXTrackingTests.swift in Sources */,
 				4B473B391FA793C400762D62 /* TrackingUtil.swift in Sources */,
 				4B473B3C1FA793CB00762D62 /* TrackStorageManager.swift in Sources */,
@@ -318,7 +344,9 @@
 				4BD1E8641FB38012002B3F75 /* PXTrackingURLConfigs.swift in Sources */,
 				4B473B381FA793C100762D62 /* String+Additions.swift in Sources */,
 				4B473B3B1FA793C800762D62 /* Utils.swift in Sources */,
+				4BE3C5492056BE5C005BE20C /* MPTScreenTrackInfo.swift in Sources */,
 				2377F9002052AB7100AB1B94 /* FlowService.swift in Sources */,
+				4BE3C5482056BE57005BE20C /* MPTApplication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

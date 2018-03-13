@@ -67,6 +67,9 @@ open class TrackingUtil: NSObject {
     open static let METADATA_ERROR_CODE = "error_code"
     open static let METADATA_ERROR_REQUEST = "error_request_origin"
     open static let METATDATA_SECURITY_CODE_VIEW_REASON = "security_code_view_reason"
+    open static let METADATA_INSTALLMENTS = "installments"
+    open static let METADATA_CARD_ID = "card_id"
+    open static let METADATA_OPTIONS = "options"
 
     //Default values
     open static let HAS_SHIPPING_DEFAULT_VALUE = "false"
@@ -74,4 +77,6 @@ open class TrackingUtil: NSObject {
     open static let NO_NAME_SCREEN = "NO NAME"
     open static let NO_SCREEN_ID = "/"
 
+    //MARK: Action events
+    open static let ACTION_CHECKOUT_CONFIRMED = "/checkout_confirmed"
 }

@@ -14,11 +14,11 @@ class TrackStorageManager: NSObject {
     static var MAX_AGEING_SECONDS: Int  = SETTING_MAX_AGEING
     static var MAX_LIFETIME_IN_DAYS: Int = SETTING_MAX_LIFETIME
     //Guardo el ScreenTrackInfo serializado en el array del userDefaults, si el mismo no esta creado lo crea
-    static func persist(screenTrackInfo: ScreenTrackInfo) {
+    static func persist(screenTrackInfo: MPTScreenTrackInfo) {
         persist(screenTrackInfoArray: [screenTrackInfo])
     }
     //Guardo todos los elementos del array screenTrackInfoArray serializado en el array del userDefaults, si el mismo no esta creado lo crea
-    static func persist(screenTrackInfoArray: [ScreenTrackInfo]) {
+    static func persist(screenTrackInfoArray: [MPTScreenTrackInfo]) {
 
         var newArray = [String]()
         if let array = UserDefaults.standard.array(forKey: SCREEN_TRACK_INFO_ARRAY_KEY) as? [String] {
@@ -35,9 +35,9 @@ class TrackStorageManager: NSObject {
         guard let arrayScreen = array as? [String] else {
             return
         }
-        var screenTrackArray = [ScreenTrackInfo]()
+        var screenTrackArray = [MPTScreenTrackInfo]()
         for trackScreenJSON in arrayScreen {
-            screenTrackArray.append(ScreenTrackInfo(from: JSONHandler.convertToDictionary(text: trackScreenJSON)!))
+            screenTrackArray.append(MPTScreenTrackInfo(from: JSONHandler.convertToDictionary(text: trackScreenJSON)!))
         }
         let maxLifetimeMilliseconds: Int64 = Int64(MAX_LIFETIME_IN_DAYS * 24 * 60 * 60)
         let lastScreens = screenTrackArray.filter {
@@ -52,16 +52,16 @@ class TrackStorageManager: NSObject {
     }
 
     //Devuevle un array con los MAX_TRACKS_PER_REQUEST ultimos screenstrackinfo
-    static func getBatchScreenTracks(force: Bool = false) -> [ScreenTrackInfo]? {
+    static func getBatchScreenTracks(force: Bool = false) -> [MPTScreenTrackInfo]? {
         cleanStorage()
         let array = UserDefaults.standard.array(forKey: SCREEN_TRACK_INFO_ARRAY_KEY)
         guard let arrayScreen = array as? [String] else {
             return nil
         }
 
-        var screenTrackArray = [ScreenTrackInfo]()
+        var screenTrackArray = [MPTScreenTrackInfo]()
         for trackScreenJSON in arrayScreen {
-            screenTrackArray.append(ScreenTrackInfo(from: JSONHandler.convertToDictionary(text: trackScreenJSON)!))
+            screenTrackArray.append(MPTScreenTrackInfo(from: JSONHandler.convertToDictionary(text: trackScreenJSON)!))
         }
         var lastScreens = screenTrackArray.sorted { $0.timestamp < $1.timestamp}
         let lastScreenTrack = lastScreens.first
@@ -87,7 +87,7 @@ class TrackStorageManager: NSObject {
         return Array(newArray)
     }
 
-    static func forceCauseAgeing(lastTrack: ScreenTrackInfo) -> Bool {
+    static func forceCauseAgeing(lastTrack: MPTScreenTrackInfo) -> Bool {
         let maxAgeningInMilliseconds: Int64 = Int64(TrackStorageManager.MAX_AGEING_SECONDS * 1000)
         return lastTrack.timestamp + maxAgeningInMilliseconds < Date().getCurrentMillis()
     }

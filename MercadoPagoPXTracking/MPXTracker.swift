@@ -14,25 +14,24 @@ public protocol MPTrackListener {
     func trackEvent(screenName: String?, action: String!, result: String?, extraParams: [String: Any]?)
 }
 
-public class MPXTracker: NSObject {
+public struct MPXTrackingEnvironment {
+    public static let production = "production"
+    public static let staging = "staging"
+}
 
-    enum Environment: String {
-        case production = "production"
-        case staging = "staging"
-    }
-    
-    static let sharedInstance = MPXTracker()
+public class MPXTracker: NSObject {
+    open static let sharedInstance = MPXTracker()
     
     var public_key: String = ""
     var sdkVersion = ""
     static let kTrackingSettings = "tracking_settings"
-    private static let kTrackingEnabled = "tracking_enabled"
+    fileprivate static let kTrackingEnabled = "tracking_enabled"
     
     var trackListener: MPTrackListener?
     var trackingStrategy: TrackingStrategy = RealTimeStrategy()
     
     fileprivate var flowService: FlowService = FlowService(nil)
-    fileprivate lazy var currentEnvironment: String = Environment.staging.rawValue
+    fileprivate lazy var currentEnvironment: String = MPXTrackingEnvironment.production
 }
 
 // MARK: Getters/setters.
@@ -87,12 +86,16 @@ extension MPXTracker {
     open func startNewFlow(externalFlowId:String) {
         flowService.startNewFlow(externalFlowId: externalFlowId)
     }
+
+    open func getFlowID() -> String {
+        return flowService.getFlowId()
+    }
 }
 
 // MARK: Public interfase.
 extension MPXTracker {
     
-    open func trackScreen(screenId: String, screenName: String, metadata: [String : String?] = [:]) {
+    open func trackScreen(screenId: String, screenName: String, properties: [String: String] = [:]) {
         if let trackListenerInterfase = trackListener {
             trackListenerInterfase.trackScreen(screenName: screenName)
         }
@@ -100,8 +103,18 @@ extension MPXTracker {
             return
         }
         setTrackingStrategy(screenID: screenId)
-        let screenTrack = ScreenTrackInfo(screenName: screenName, screenId: screenId, metadata: metadata)
+        let screenTrack = MPTScreenTrackInfo(screenName: screenName, screenId: screenId, properties: properties)
         trackingStrategy.trackScreen(screenTrack: screenTrack)
+    }
+
+    open func trackActionEvent(action: String, screenId: String, screenName: String, properties: [String: String] = [:]) {
+        if !isEnabled() {
+            return
+        }
+        let trackingStrategy = RealTimeStrategy() // TODO: Use other strategies
+        let screenTrack = MPTActionEventInfo(action: action, screenName: screenName, screenId: screenId, properties: properties)
+        self.trackingStrategy = trackingStrategy
+        trackingStrategy.trackActionEvent(actionEvenTrack: screenTrack)
     }
     
     open func setTrackingStrategy(screenID: String) {
@@ -131,7 +144,8 @@ extension MPXTracker {
         ]
         return obj
     }
-    
+
+    // TODO: Remove it is not used
     internal func generateJSONScreen(screenId: String, screenName: String, metadata: [String:Any]) -> [String:Any] {
         var obj = generateJSONDefault()
         let screenJSON = self.screenJSON(screenId: screenId, screenName: screenName, metadata:metadata)
@@ -160,7 +174,8 @@ extension MPXTracker {
         ]
         return obj
     }
-    
+
+    // Todo: Remove, it is not used
     internal func screenJSON(screenId: String, screenName: String, metadata: [String:Any]) -> [String:Any] {
         let timestamp = Date().getCurrentMillis()
         let obj: [String:Any] = [
