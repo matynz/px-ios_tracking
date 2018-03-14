@@ -13,12 +13,8 @@ final class FlowService {
     static let FLOW_ID_KEY: String = "flow_id"
     private var flowId: String
     
-    init(_ currentFlowId:String?) {
-        if let currentId = currentFlowId {
-            flowId = currentId
-        } else {
-            flowId = FlowService.getUUID()
-        }
+    init(_ currentFlowId: String = FlowService.getUUID()) {
+        flowId = currentFlowId
     }
     
     func getFlowId() -> String {

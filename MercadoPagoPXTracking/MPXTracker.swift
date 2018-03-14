@@ -30,7 +30,7 @@ public class MPXTracker: NSObject {
     var trackListener: MPTrackListener?
     var trackingStrategy: TrackingStrategy = RealTimeStrategy()
     
-    fileprivate var flowService: FlowService = FlowService(nil)
+    fileprivate var flowService: FlowService = FlowService()
     fileprivate lazy var currentEnvironment: String = MPXTrackingEnvironment.production
 }
 
