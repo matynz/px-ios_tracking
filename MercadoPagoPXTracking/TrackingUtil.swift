@@ -57,6 +57,7 @@ open class TrackingUtil: NSObject {
     //Additional Info Keys
     open static let METADATA_PAYMENT_METHOD_ID = "payment_method"
     open static let METADATA_PAYMENT_TYPE_ID = "payment_type"
+    open static let METADATA_AMOUNT_ID = "purchase_amount"
     open static let METADATA_ISSUER_ID = "issuer"
     open static let METADATA_SHIPPING_INFO = "has_shipping"
     open static let METADATA_PAYMENT_STATUS = "payment_status"
