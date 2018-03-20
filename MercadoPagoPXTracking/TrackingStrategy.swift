@@ -9,25 +9,31 @@
 import Foundation
 
 protocol TrackingStrategy {
-    func trackScreen(screenTrack: ScreenTrackInfo)
+    func trackScreen(screenTrack: MPTScreenTrackInfo)
 }
 
 class RealTimeStrategy: TrackingStrategy { // V1
-    func trackScreen(screenTrack: ScreenTrackInfo) {
-     self.send(trackList: [screenTrack])
+    func trackScreen(screenTrack: MPTScreenTrackInfo) {
+        self.send(trackList: [screenTrack])
     }
-    private func send(trackList: Array<ScreenTrackInfo>) {
-        var jsonBody = MPXTracker.generateJSONDefault()
+
+    func trackActionEvent(actionEvenTrack: MPTActionEventInfo) {
+        self.send(trackList: [actionEvenTrack])
+    }
+    
+    private func send(trackList: Array<MPTrackInfo>) {
+        var jsonBody = MPXTracker.sharedInstance.generateJSONDefault()
         var arrayEvents = Array<[String:Any]>()
         for elementToTrack in trackList {
             arrayEvents.append(elementToTrack.toJSON())
         }
         jsonBody["events"] = arrayEvents
-        let body = JSONHandler.jsonCoding(jsonBody)
 
+        let body = JSONHandler.jsonCoding(jsonBody)
+        let params = "public_key=\(MPXTracker.sharedInstance.public_key)"
         let header : [String: String] = [PXTrackingURLConfigs.headerEventTracking: PXTrackingSettings.eventsTrackingVersion]
 
-        TrackingServices.request(url: PXTrackingURLConfigs.TRACKING_URL, params: nil, body: body, method: "POST", headers: header, success: { (result) -> Void in
+        TrackingServices.request(url: PXTrackingURLConfigs.TRACKING_URL, params: params, body: body, method: "POST", headers: header, success: { (result) -> Void in
         }) { (error) -> Void in
         }
     }
@@ -35,7 +41,7 @@ class RealTimeStrategy: TrackingStrategy { // V1
 
 class BatchStrategy: TrackingStrategy { // V2
 
-    func trackScreen(screenTrack: ScreenTrackInfo) {
+    func trackScreen(screenTrack: MPTScreenTrackInfo) {
         TrackStorageManager.persist(screenTrackInfo: screenTrack)
         attemptSendTrackInfo()
     }
@@ -57,17 +63,18 @@ class BatchStrategy: TrackingStrategy { // V2
             send(trackList: batch)
         }
     }
-    private func send(trackList: Array<ScreenTrackInfo>) {
-        var jsonBody = MPXTracker.generateJSONDefault()
+    private func send(trackList: Array<MPTScreenTrackInfo>) {
+        var jsonBody = MPXTracker.sharedInstance.generateJSONDefault()
         var arrayEvents = Array<[String:Any]>()
         for elementToTrack in trackList {
             arrayEvents.append(elementToTrack.toJSON())
         }
         jsonBody["events"] = arrayEvents
         let body = JSONHandler.jsonCoding(jsonBody)
-
+        let params = "public_key=\(MPXTracker.sharedInstance.public_key)"
         let header : [String: String] = [PXTrackingURLConfigs.headerEventTracking: PXTrackingSettings.eventsTrackingVersion]
-        TrackingServices.request(url: PXTrackingURLConfigs.TRACKING_URL, params: nil, body: body, method: "POST", headers: header, success: { (result) -> Void in
+
+        TrackingServices.request(url: PXTrackingURLConfigs.TRACKING_URL, params: params, body: body, method: "POST", headers: header, success: { (result) -> Void in
         }) { (error) -> Void in
             TrackStorageManager.persist(screenTrackInfoArray: trackList) // Vuelve a guardar los tracks que no se pudieron trackear
         }
@@ -77,7 +84,7 @@ class BatchStrategy: TrackingStrategy { // V2
 
 class ForceTrackStrategy: TrackingStrategy { // V2
 
-    func trackScreen(screenTrack: ScreenTrackInfo) {
+    func trackScreen(screenTrack: MPTScreenTrackInfo) {
         TrackStorageManager.persist(screenTrackInfo: screenTrack)
         attemptSendTrackInfo(force:true)
     }
@@ -100,18 +107,18 @@ class ForceTrackStrategy: TrackingStrategy { // V2
             attemptSendTrackInfo(force: force)
         }
     }
-    private func send(trackList: [ScreenTrackInfo]) {
-        var jsonBody = MPXTracker.generateJSONDefault()
+    private func send(trackList: [MPTScreenTrackInfo]) {
+        var jsonBody = MPXTracker.sharedInstance.generateJSONDefault()
         var arrayEvents = [[String: Any]]()
         for elementToTrack in trackList {
             arrayEvents.append(elementToTrack.toJSON())
         }
         jsonBody["events"] = arrayEvents
         let body = JSONHandler.jsonCoding(jsonBody)
-
+        let params = "public_key=\(MPXTracker.sharedInstance.public_key)"
         let header : [String: String] = [PXTrackingURLConfigs.headerEventTracking: PXTrackingSettings.eventsTrackingVersion]
 
-        TrackingServices.request(url: PXTrackingURLConfigs.TRACKING_URL, params: nil, body: body, method: "POST", headers: header, success: { (result) -> Void in
+        TrackingServices.request(url: PXTrackingURLConfigs.TRACKING_URL, params: params, body: body, method: "POST", headers: header, success: { (result) -> Void in
         }) { (error) -> Void in
             TrackStorageManager.persist(screenTrackInfoArray: trackList) // Vuelve a guardar los tracks que no se pudieron trackear
         }
