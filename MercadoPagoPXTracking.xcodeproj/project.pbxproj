@@ -50,6 +50,9 @@
 		4BE3C54F2056C4EB005BE20C /* MPTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C54E2056C4EB005BE20C /* MPTrackInfo.swift */; };
 		4BEB380D1FA777C4005127BE /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB380C1FA777C4005127BE /* Array+Additions.swift */; };
 		4BEB380F1FA777DB005127BE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB380E1FA777DB005127BE /* Utils.swift */; };
+		4BEF7A9C20615B9000A02E48 /* MPTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C54E2056C4EB005BE20C /* MPTrackInfo.swift */; };
+		4BEF7A9D20615BC200A02E48 /* MPTTrackType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C54C2056C034005BE20C /* MPTTrackType.swift */; };
+		4BEF7A9E20615BD900A02E48 /* MPTActionEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3C54A2056BE84005BE20C /* MPTActionEventInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,14 +334,17 @@
 			files = (
 				4B473B371FA7939300762D62 /* TrackerTest.swift in Sources */,
 				4B473B411FA793D900762D62 /* MPXReach.swift in Sources */,
+				4BEF7A9C20615B9000A02E48 /* MPTrackInfo.swift in Sources */,
 				4B473B421FA793DC00762D62 /* MPTDevice.swift in Sources */,
 				4B473B431FA793DF00762D62 /* Array+Additions.swift in Sources */,
+				4BEF7A9D20615BC200A02E48 /* MPTTrackType.swift in Sources */,
 				4B473B3A1FA793C600762D62 /* JSONHandler.swift in Sources */,
 				4B473B3E1FA793D000762D62 /* TrackingServices.swift in Sources */,
 				4B473B3F1FA793D400762D62 /* PaymentTracker.swift in Sources */,
 				4BE3C5462056BE3B005BE20C /* Date+Additions.swift in Sources */,
 				4B606EAB1FA758E4006277D7 /* MercadoPagoPXTrackingTests.swift in Sources */,
 				4B473B391FA793C400762D62 /* TrackingUtil.swift in Sources */,
+				4BEF7A9E20615BD900A02E48 /* MPTActionEventInfo.swift in Sources */,
 				4B473B3C1FA793CB00762D62 /* TrackStorageManager.swift in Sources */,
 				4B473B461FA79ADC00762D62 /* MPXTracker.swift in Sources */,
 				4BD1E8641FB38012002B3F75 /* PXTrackingURLConfigs.swift in Sources */,

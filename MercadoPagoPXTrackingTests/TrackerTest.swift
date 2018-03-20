@@ -9,7 +9,7 @@
 import XCTest
 
 class TrackingStrategy {
-    func trackScreen(screenTrack: ScreenTrackInfo){
+    func trackScreen(screenTrack: MPTScreenTrackInfo){
 
     }
 }
@@ -23,6 +23,9 @@ class ForceTrackStrategy: TrackingStrategy {
 
 class RealTimeStrategy: TrackingStrategy {
 
+    func trackActionEvent(actionEvenTrack: MPTActionEventInfo) {
+
+    }
 }
 
 class DummyContext: MPXTracker {
