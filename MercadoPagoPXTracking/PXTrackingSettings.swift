@@ -9,7 +9,7 @@
 import Foundation
 open class PXTrackingSettings: NSObject {
 
-    static let eventsTrackingVersion = "1"
+    static let eventsTrackingVersion = "2"
 
     open class func enableBetaServices() {
         PXTrackingURLConfigs.MP_SELECTED_ENV = PXTrackingURLConfigs.MP_TEST_ENV

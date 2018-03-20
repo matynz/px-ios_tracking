@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MercadoPagoPXTracking"
-  s.version          = "2.0.2"
+  s.version          = "2.1.0"
   s.summary          = "MercadoPago PX Tracking"
   s.homepage         = "https://www.mercadopago.com"
   s.license          = { :type => "MIT", :file => "LICENSE" }
