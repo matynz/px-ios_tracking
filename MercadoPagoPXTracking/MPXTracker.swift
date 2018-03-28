@@ -19,15 +19,16 @@ public struct MPXTrackingEnvironment {
     public static let staging = "staging"
 }
 
+@objc
 public class MPXTracker: NSObject {
-    open static let sharedInstance = MPXTracker()
+    @objc open static let sharedInstance = MPXTracker()
     
     var public_key: String = ""
     var sdkVersion = ""
     static let kTrackingSettings = "tracking_settings"
     fileprivate static let kTrackingEnabled = "tracking_enabled"
     
-    var trackListener: MPTrackListener?
+    @objc open var trackListener: MPTrackListener?
     var trackingStrategy: TrackingStrategy = RealTimeStrategy()
     
     fileprivate var flowService: FlowService = FlowService()
